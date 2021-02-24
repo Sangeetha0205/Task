@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EapiErrorEnum.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">customerest</a> &gt; <a href="index.source.html" class="el_package">com.wba.api.customerest.constant</a> &gt; <span class="el_source">EapiErrorEnum.java</span></div><h1>EapiErrorEnum.java</h1><pre class="source lang-java linenums">package com.wba.api.customerest.constant;
+
+/**
+ * @author 165571
+ * @href &lt;mohammedanas.abdulrasheed@ust.com&gt;
+ * @createdon 2/16/2021
+ */
+
+<span class="fc" id="L9">public enum EapiErrorEnum {</span>
+
+<span class="fc" id="L11">    ERRROR404(&quot;Patient records not found !!! Please ensure requested values are correct !!! &quot;),</span>
+<span class="fc" id="L12">    ERRROR500(&quot;Sorry! This service is temporarily unavailable. Please try again later.&quot;),</span>
+<span class="fc" id="L13">    ERRROR503(&quot;DB Service Temporarily down !!! Try again after some time...&quot;),</span>
+<span class="fc" id="L14">    ERRROR400(&quot; Invalid/Bad Request.. please ensure request body/params are correct&quot;),</span>
+<span class="fc" id="L15">    ERRROR401(&quot;Unauthorized request..method not allowed..&quot;),</span>
+<span class="fc" id="L16">    ERRROR405(&quot;Unauthorized request..method not allowed..&quot;);</span>
+
+
+    private String message;
+
+    public String getMessage() {
+<span class="fc" id="L22">        return message;</span>
+    }
+
+<span class="fc" id="L25">    private EapiErrorEnum(String message) {</span>
+<span class="fc" id="L26">        this.message = message;</span>
+<span class="fc" id="L27">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

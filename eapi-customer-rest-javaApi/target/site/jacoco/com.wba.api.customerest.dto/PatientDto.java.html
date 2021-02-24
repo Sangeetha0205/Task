@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PatientDto.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">customerest</a> &gt; <a href="index.source.html" class="el_package">com.wba.api.customerest.dto</a> &gt; <span class="el_source">PatientDto.java</span></div><h1>PatientDto.java</h1><pre class="source lang-java linenums">package com.wba.api.customerest.dto;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+/**
+ * @author 165571
+ * @href &lt;mohammedanas.abdulrasheed@ust.com&gt;
+ * @createdon 2/12/2021
+ */
+
+<span class="fc" id="L14">public class PatientDto implements Serializable {</span>
+
+    private String patientId;
+    private String firstName;
+    private String middleInit;
+    private String lastName;
+    private String surnameSuffix;
+    private String gender;
+    private String email;
+    private String dob;
+    private String phoneNumberAreaCode;
+    private String phoneNumber;
+    private String preferredStoreNumber;
+    private String lastFilledStoreNumber;
+    private String preferredPaymentMethod;
+    private String previousFilledLastMile;
+    private ShippingAddressDto customerShippingAddress;
+    private List&lt;PaymentDto&gt; profilePaymentDetails;
+
+    public String getPatientId() {
+<span class="fc" id="L34">        return patientId;</span>
+    }
+
+    public void setPatientId(String patientId) {
+<span class="fc" id="L38">        this.patientId = patientId;</span>
+<span class="fc" id="L39">    }</span>
+
+    public String getFirstName() {
+<span class="fc" id="L42">        return firstName;</span>
+    }
+
+    public void setFirstName(String firstName) {
+<span class="fc" id="L46">        this.firstName = firstName;</span>
+<span class="fc" id="L47">    }</span>
+
+    public String getMiddleInit() {
+<span class="fc" id="L50">        return middleInit;</span>
+    }
+
+    public void setMiddleInit(String middleInit) {
+<span class="fc" id="L54">        this.middleInit = middleInit;</span>
+<span class="fc" id="L55">    }</span>
+
+    public String getLastName() {
+<span class="fc" id="L58">        return lastName;</span>
+    }
+
+    public void setLastName(String lastName) {
+<span class="fc" id="L62">        this.lastName = lastName;</span>
+<span class="fc" id="L63">    }</span>
+
+    public String getSurnameSuffix() {
+<span class="fc" id="L66">        return surnameSuffix;</span>
+    }
+
+    public void setSurnameSuffix(String surnameSuffix) {
+<span class="fc" id="L70">        this.surnameSuffix = surnameSuffix;</span>
+<span class="fc" id="L71">    }</span>
+
+    public String getGender() {
+<span class="fc" id="L74">        return gender;</span>
+    }
+
+    public void setGender(String gender) {
+<span class="fc" id="L78">        this.gender = gender;</span>
+<span class="fc" id="L79">    }</span>
+
+    public String getEmail() {
+<span class="fc" id="L82">        return email;</span>
+    }
+
+    public void setEmail(String email) {
+<span class="fc" id="L86">        this.email = email;</span>
+<span class="fc" id="L87">    }</span>
+
+    public String getDob() {
+<span class="fc" id="L90">        return dob;</span>
+    }
+
+    public void setDob(String dob) {
+<span class="fc" id="L94">        this.dob = dob;</span>
+<span class="fc" id="L95">    }</span>
+
+    public String getPhoneNumberAreaCode() {
+<span class="fc" id="L98">        return phoneNumberAreaCode;</span>
+    }
+
+    public void setPhoneNumberAreaCode(String phoneNumberAreaCode) {
+<span class="fc" id="L102">        this.phoneNumberAreaCode = phoneNumberAreaCode;</span>
+<span class="fc" id="L103">    }</span>
+
+    public String getPhoneNumber() {
+<span class="fc" id="L106">        return phoneNumber;</span>
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+<span class="fc" id="L110">        this.phoneNumber = phoneNumber;</span>
+<span class="fc" id="L111">    }</span>
+
+    public String getPreferredStoreNumber() {
+<span class="fc" id="L114">        return preferredStoreNumber;</span>
+    }
+
+    public void setPreferredStoreNumber(String preferredStoreNumber) {
+<span class="fc" id="L118">        this.preferredStoreNumber = preferredStoreNumber;</span>
+<span class="fc" id="L119">    }</span>
+
+    public String getLastFilledStoreNumber() {
+<span class="fc" id="L122">        return lastFilledStoreNumber;</span>
+    }
+
+    public void setLastFilledStoreNumber(String lastFilledStoreNumber) {
+<span class="fc" id="L126">        this.lastFilledStoreNumber = lastFilledStoreNumber;</span>
+<span class="fc" id="L127">    }</span>
+
+    public String getPreferredPaymentMethod() {
+<span class="fc" id="L130">        return preferredPaymentMethod;</span>
+    }
+
+    public void setPreferredPaymentMethod(String preferredPaymentMethod) {
+<span class="fc" id="L134">        this.preferredPaymentMethod = preferredPaymentMethod;</span>
+<span class="fc" id="L135">    }</span>
+
+    public String getPreviousFilledLastMile() {
+<span class="fc" id="L138">        return previousFilledLastMile;</span>
+    }
+
+    public void setPreviousFilledLastMile(String previousFilledLastMile) {
+<span class="fc" id="L142">        this.previousFilledLastMile = previousFilledLastMile;</span>
+<span class="fc" id="L143">    }</span>
+
+    public ShippingAddressDto getCustomerShippingAddress() {
+<span class="fc" id="L146">        return customerShippingAddress;</span>
+    }
+
+    public void setCustomerShippingAddress(ShippingAddressDto customerShippingAddress) {
+<span class="fc" id="L150">        this.customerShippingAddress = customerShippingAddress;</span>
+<span class="fc" id="L151">    }</span>
+
+    public List&lt;PaymentDto&gt; getProfilePaymentDetails() {
+
+<span class="fc bfc" id="L155" title="All 2 branches covered.">        if(profilePaymentDetails==null)</span>
+<span class="fc" id="L156">            profilePaymentDetails=new ArrayList&lt;&gt;();</span>
+
+<span class="fc" id="L158">        return profilePaymentDetails;</span>
+    }
+
+    @Override
+    public boolean equals(Object o) {
+<span class="pc bpc" id="L163" title="1 of 2 branches missed.">        if (this == o) return true;</span>
+<span class="pc bpc" id="L164" title="2 of 4 branches missed.">        if (o == null || getClass() != o.getClass()) return false;</span>
+<span class="fc" id="L165">        PatientDto that = (PatientDto) o;</span>
+<span class="pc bpc" id="L166" title="16 of 32 branches missed.">        return Objects.equals(getPatientId(), that.getPatientId()) &amp;&amp; Objects.equals(getFirstName(), that.getFirstName()) &amp;&amp; Objects.equals(getMiddleInit(), that.getMiddleInit()) &amp;&amp; Objects.equals(getLastName(), that.getLastName()) &amp;&amp; Objects.equals(getSurnameSuffix(), that.getSurnameSuffix()) &amp;&amp; Objects.equals(getGender(), that.getGender()) &amp;&amp; Objects.equals(getEmail(), that.getEmail()) &amp;&amp; Objects.equals(getDob(), that.getDob()) &amp;&amp; Objects.equals(getPhoneNumberAreaCode(), that.getPhoneNumberAreaCode()) &amp;&amp; Objects.equals(getPhoneNumber(), that.getPhoneNumber()) &amp;&amp; Objects.equals(getPreferredStoreNumber(), that.getPreferredStoreNumber()) &amp;&amp; Objects.equals(getLastFilledStoreNumber(), that.getLastFilledStoreNumber()) &amp;&amp; Objects.equals(getPreferredPaymentMethod(), that.getPreferredPaymentMethod()) &amp;&amp; Objects.equals(getPreviousFilledLastMile(), that.getPreviousFilledLastMile()) &amp;&amp; Objects.equals(getCustomerShippingAddress(), that.getCustomerShippingAddress()) &amp;&amp; Objects.equals(getProfilePaymentDetails(), that.getProfilePaymentDetails());</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

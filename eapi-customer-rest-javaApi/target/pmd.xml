@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd"
+    version="6.8.0" timestamp="2021-02-16T20:45:35.146">
+<file name="C:\IntelliJ WorkSpace\cicd-dev-javaapi-boilerplate\eapi-customer-rest\src\main\java\com\wba\api\customerest\repository\PatientRepository.java">
+<violation beginline="5" endline="5" begincolumn="1" endcolumn="48" rule="UnusedImports" ruleset="Best Practices" package="com.wba.api.customerest.repository" class="PatientRepository" externalInfoUrl="https://pmd.github.io/pmd-6.8.0/pmd_rules_java_bestpractices.html#unusedimports" priority="4">
+Avoid unused imports such as 'org.springframework.stereotype.Component'
+</violation>
+</file>
+</pmd>

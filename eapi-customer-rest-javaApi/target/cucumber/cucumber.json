@@ -1,0 +1,118 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 4,
+        "name": "Response code checks for boilerplate service",
+        "description": "",
+        "id": "validate-if-boilerplate-api-is-providing-expected-information;response-code-checks-for-boilerplate-service",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 5,
+            "name": "I am a JSON API consumer",
+            "match": {},
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 6,
+            "name": "I request GET \"/api/v1/walgreens/java/boilerplate/1\"",
+            "match": {},
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 7,
+            "name": "I should get a status code of 200",
+            "match": {},
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@shakedown"
+          },
+          {
+            "name": "@smoke"
+          },
+          {
+            "name": "@sit"
+          }
+        ]
+      },
+      {
+        "line": 10,
+        "name": "Status of ping service",
+        "description": "",
+        "id": "validate-if-boilerplate-api-is-providing-expected-information;status-of-ping-service",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 11,
+            "name": "I request GET \"/api/v1/walgreens/java/boilerplate/ping\"",
+            "match": {},
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 12,
+            "name": "the response value of \"apiname\" should equal \"waglobsbujavaboilerplt\"",
+            "match": {},
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 13,
+            "name": "the response value of \"version\" should equal \"v1_0_0\"",
+            "match": {},
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 14,
+            "name": "the response value of \"status\" should equal \"ok\"",
+            "match": {},
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@shakedown"
+          },
+          {
+            "name": "@smoke"
+          },
+          {
+            "name": "@sit"
+          }
+        ]
+      }
+    ],
+    "name": "Validate if boilerplate API is providing expected information",
+    "description": "",
+    "id": "validate-if-boilerplate-api-is-providing-expected-information",
+    "keyword": "Feature",
+    "uri": "features/getBoilerplate.feature",
+    "tags": []
+  }
+]

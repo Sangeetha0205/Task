@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ControllerAdvisor.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">customerest</a> &gt; <a href="index.source.html" class="el_package">com.wba.api.customerest.exception</a> &gt; <span class="el_source">ControllerAdvisor.java</span></div><h1>ControllerAdvisor.java</h1><pre class="source lang-java linenums">package com.wba.api.customerest.exception;
+
+import com.wba.api.customerest.constant.EapiErrorEnum;
+import com.wba.api.customerest.constant.WalgErrorEnum;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
+import org.springframework.web.bind.MissingServletRequestParameterException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.server.ResponseStatusException;
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+/**
+ * @author 165571
+ * @href &lt;mohammedanas.abdulrasheed@ust.com&gt;
+ * @createdon 2/12/2021
+ *
+ * Class generating custom error messages
+ */
+
+@ControllerAdvice
+<span class="fc" id="L26">public class ControllerAdvisor{</span>
+
+    ErrorObject errorObj;
+    ArrayList&lt;ErrorObject&gt; errors;
+
+    @ExceptionHandler
+    ResponseEntity&lt;Object&gt; showCustomErrorMessage(Exception exception){
+
+        WalgErrorEnum walgErrorCode;
+
+        //Default value taken as 500 &amp; Internal Server Error
+<span class="fc" id="L37">        HttpStatus httpStatus=  HttpStatus.INTERNAL_SERVER_ERROR;</span>
+<span class="fc" id="L38">        String exceptionMessage=EapiErrorEnum.ERRROR500.getMessage();</span>
+
+<span class="fc bfc" id="L40" title="All 2 branches covered.">        if(exception instanceof HttpRequestMethodNotSupportedException){</span>
+
+<span class="fc" id="L42">            httpStatus=HttpStatus.METHOD_NOT_ALLOWED;</span>
+<span class="fc" id="L43">            exceptionMessage=EapiErrorEnum.ERRROR405.getMessage();;</span>
+        }
+<span class="fc bfc" id="L45" title="All 2 branches covered.">        else if(exception instanceof MissingServletRequestParameterException){</span>
+
+<span class="fc" id="L47">            httpStatus=HttpStatus.BAD_REQUEST;</span>
+<span class="fc" id="L48">            exceptionMessage=EapiErrorEnum.ERRROR400.getMessage();</span>
+        }
+<span class="pc bpc" id="L50" title="1 of 2 branches missed.">        else if (exception instanceof ResponseStatusException){</span>
+
+<span class="fc" id="L52">            ResponseStatusException responseStatusException= (ResponseStatusException) exception;</span>
+<span class="fc" id="L53">            httpStatus=  responseStatusException.getStatus();</span>
+<span class="fc" id="L54">            exceptionMessage=responseStatusException.getReason();</span>
+        }
+
+<span class="pc bpc" id="L57" title="1 of 5 branches missed.">        switch(httpStatus.value()){ // choose the walgreens error code as per http status</span>
+
+<span class="fc" id="L59">            case 400 : walgErrorCode=WalgErrorEnum.WAG_E_INVALID_REQUEST_1001;break;</span>
+<span class="fc" id="L60">            case 404 : walgErrorCode=WalgErrorEnum.WAG_E_SEARCH_1000;break;</span>
+<span class="nc" id="L61">            case 401 : walgErrorCode=WalgErrorEnum.WAG_E_UNAUTHORIZED_REQUEST_1001;break;</span>
+<span class="fc" id="L62">            case 500 : walgErrorCode=WalgErrorEnum.WAG_E_SVC_ERROR_1000;break;</span>
+<span class="fc" id="L63">            default  : walgErrorCode=WalgErrorEnum.WAG_E_INVALID_METHOD_1001;break;</span>
+        }
+
+<span class="fc" id="L66">        errors=new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L67">        errorObj=new ErrorObject( walgErrorCode.toString(),exceptionMessage,&quot;ERROR&quot;);</span>
+
+<span class="fc" id="L69">        Map&lt;String, Object&gt; body = new LinkedHashMap&lt;&gt;();</span>
+<span class="fc" id="L70">        errors.add(errorObj);</span>
+<span class="fc" id="L71">        body.put(&quot;messages&quot;, errors);</span>
+
+<span class="fc" id="L73">        return new ResponseEntity&lt;&gt;(body,httpStatus);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

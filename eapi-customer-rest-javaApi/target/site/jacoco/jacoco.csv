@@ -1,0 +1,13 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+customerest,com.wba.api.customerest.constant,WalgErrorEnum,0,54,0,0,0,6,0,1,0,1
+customerest,com.wba.api.customerest.constant,EapiErrorEnum,0,81,0,0,0,11,0,3,0,3
+customerest,com.wba.api.customerest,CustomerRestApplication,8,0,0,0,3,0,2,0,2,0
+customerest,com.wba.api.customerest.model,PatientModel,83,95,0,0,41,35,21,30,21,30
+customerest,com.wba.api.customerest.controller,CustomerRestController,0,15,0,0,0,4,0,3,0,3
+customerest,com.wba.api.customerest.exception,ControllerAdvisor,3,88,2,9,1,24,2,7,0,2
+customerest,com.wba.api.customerest.exception,ErrorObject,12,21,0,0,6,8,3,4,3,4
+customerest,com.wba.api.customerest.service,CustomerServiceImpl,0,85,0,2,0,22,0,5,0,4
+customerest,com.wba.api.customerest.config,PropertyConfig,15,0,0,0,4,0,2,0,2,0
+customerest,com.wba.api.customerest.dto,ShippingAddressDto,5,71,7,7,0,17,7,10,0,10
+customerest,com.wba.api.customerest.dto,PatientDto,5,231,19,21,0,53,19,34,0,33
+customerest,com.wba.api.customerest.dto,PaymentDto,8,107,10,10,1,25,11,15,1,15

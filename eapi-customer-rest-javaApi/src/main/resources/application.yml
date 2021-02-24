@@ -1,0 +1,24 @@
+---
+info:
+  apiname: eapi-customer-rest
+  status: ok
+  version: v1_0_0
+management:
+  endpoints:
+    web:
+      base-path: /v1/pharmacy/patient/
+      exposure:
+        include: health,info
+      path-mapping:
+        info: ping
+server:
+  port : 8081
+
+mongo:
+  host: localhost
+  port: 27017
+
+spring:
+  data:
+    mongodb:
+      database: eaapi_data

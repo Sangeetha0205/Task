@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CustomerServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">customerest</a> &gt; <a href="index.source.html" class="el_package">com.wba.api.customerest.service</a> &gt; <span class="el_source">CustomerServiceImpl.java</span></div><h1>CustomerServiceImpl.java</h1><pre class="source lang-java linenums">package com.wba.api.customerest.service;
+
+import com.mongodb.MongoException;
+import com.wba.api.customerest.constant.EapiErrorEnum;
+import com.wba.api.customerest.dto.PatientDto;
+import com.wba.api.customerest.dto.PaymentDto;
+import com.wba.api.customerest.dto.ShippingAddressDto;
+import com.wba.api.customerest.model.PatientModel;
+import com.wba.api.customerest.repository.PatientRepository;
+import org.modelmapper.ModelMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Component;
+import org.springframework.web.server.ResponseStatusException;
+
+/**
+ * @author 165571
+ * @href &lt;mohammedanas.abdulrasheed@ust.com&gt;
+ * @createdon 2/12/2021
+ */
+
+@Component(&quot;customerService&quot;)
+<span class="fc" id="L25">public class CustomerServiceImpl implements CustomerService {</span>
+
+<span class="fc" id="L27">    private static final Logger LOGGER = LoggerFactory.getLogger(CustomerServiceImpl.class);</span>
+
+    @Autowired
+    PatientRepository patientRepository;
+
+    /**
+     * Method for finding patient records by ID
+     */
+    public PatientDto getPatientById(String patientId) {
+
+        try {
+
+<span class="fc" id="L39">            LOGGER.info(&quot;MongoDb connection was successfull ...&quot;);</span>
+
+<span class="fc" id="L41">            PatientModel patientModel = patientRepository.findByPatientId(patientId);</span>
+
+<span class="fc bfc" id="L43" title="All 2 branches covered.">            if (patientModel == null)</span>
+<span class="fc" id="L44">                throw new ResponseStatusException(HttpStatus.NOT_FOUND, EapiErrorEnum.ERRROR404.getMessage());</span>
+<span class="fc" id="L45">            return generateResponseDto(patientModel);</span>
+
+<span class="fc" id="L47">        } catch (MongoException e) {</span>
+<span class="fc" id="L48">            throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE, EapiErrorEnum.ERRROR503.getMessage());</span>
+<span class="fc" id="L49">        } catch (ResponseStatusException responseStatusException) {</span>
+<span class="fc" id="L50">            throw responseStatusException;</span>
+<span class="fc" id="L51">        } catch (Exception e) {</span>
+<span class="fc" id="L52">            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, EapiErrorEnum.ERRROR500.getMessage());</span>
+        }
+    }
+
+    /**
+     * This method is responsible for mapping MongoDb model to response Dto
+     */
+    public PatientDto generateResponseDto(Object result) {
+
+<span class="fc" id="L61">        LOGGER.info(&quot;Building response data for getPatientById API....&quot;);</span>
+
+<span class="fc" id="L63">        ModelMapper modelMapper = new ModelMapper(); // building patient model using model mapper helper class</span>
+<span class="fc" id="L64">        PatientDto patientDto = modelMapper.map(result, PatientDto.class);</span>
+<span class="fc" id="L65">        PaymentDto paymentDto = modelMapper.map(result, PaymentDto.class);</span>
+
+<span class="fc" id="L67">        ShippingAddressDto shippingAddressDto = modelMapper.map(result, ShippingAddressDto.class);</span>
+<span class="fc" id="L68">        patientDto.setCustomerShippingAddress(shippingAddressDto);</span>
+<span class="fc" id="L69">        patientDto.getProfilePaymentDetails().add(paymentDto);</span>
+
+<span class="fc" id="L71">        LOGGER.info(&quot;API body for getPatientById api was successfully build....delegating response to controller...&quot;);</span>
+<span class="fc" id="L72">        return patientDto;</span>
+
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

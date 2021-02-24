@@ -1,0 +1,4 @@
+CustomerRestUnitTests.class
+RunCucumberTest.class
+controller\CustomerRestControllerTest.class
+service\CustomerServiceTest.class
